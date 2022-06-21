@@ -18,9 +18,26 @@ def remove_char(s):
     #your code here
     return s[1:len(s)-1]
 
+def positive_sum(arr):
+    # Your code here
+    result = 0
+    for item in arr:
+        if item > 0:
+            result = result + item
+    return result
+    
+def repeat_str(repeat, string):
+    s= ''
+    for _ in range(0,repeat):
+        s= s+string
+    return s
+
 def main():
     """ This is the main routine for the program """
     print("Starting the sequence:")
+    print("t1: ",positive_sum([1,2,3,4,5]),15)
+    print("t2: ",positive_sum([1,-2,3,4,5]),13)
+    print("t3: ",positive_sum([-1,2,3,4,-5]),9)
     print("t1:",array_diff([1,2],[1]),[2])
     print("t2:",array_diff([1,2,2,2,3],[2]),[1,3])
     print("r1:",array_diff([1,2],[1]),[2])
@@ -47,6 +64,9 @@ def main():
     print("t7: ",remove_char('ok'), '')
     print("t8: ",remove_char('ooopsss'), 'oopss')
 
+    print(repeat_str(4, 'a'), 'aaaa')
+    print(repeat_str(3, 'hello '), 'hello hello hello ')
+    print(repeat_str(2, 'abc'), 'abcabc')
     print("finishing up and closing down:")
 
 
