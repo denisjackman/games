@@ -3,23 +3,6 @@
 '''
 
 
-def to_roman(num):
-    '''
-        cobvert integer to roman
-    '''
-    num_map = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
-               (100, 'C'), (90, 'XC'),(50, 'L'), (40, 'XL'), (10, 'X'),
-               (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]
-    roman = ''
-    while num > 0:
-        for i, r in num_map:
-            while num >= i:
-                roman += r
-                num -= i
-
-    return roman
-
-
 def NU_to_roman(number):
     '''
         TODO
@@ -36,6 +19,48 @@ def NU_to_roman(number):
             result += sym[item]
             div -= 1
         item -= 1
+    return result
+
+
+def NU_NU_to_roman(num):
+    '''
+        convert integer to roman
+    '''
+    num_map = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
+               (100, 'C'), (90, 'XC'),(50, 'L'), (40, 'XL'), (10, 'X'),
+               (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]
+    roman = ''
+    while num > 0:
+        for i, r in num_map:
+            while num >= i:
+                roman += r
+                num -= i
+
+    return roman
+
+
+def to_roman(number):
+    '''
+        yet another integer to roman numeral converter
+    '''
+    ROMAN = [(1000, "M"),
+             ( 900, "CM"),
+             ( 500, "D"),
+             ( 400, "CD"),
+             ( 100, "C"),
+             (  90, "XC"),
+             (  50, "L"),
+             (  40, "XL"),
+             (  10, "X"),
+             (   9, "IX"),
+             (   5, "V"),
+             (   4, "IV"),
+             (   1, "I")]
+
+    result = ""
+    for (arabic, roman) in ROMAN:
+        (factor, number) = divmod(number, arabic)
+        result += roman * factor
     return result
 
 
